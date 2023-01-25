@@ -64,14 +64,14 @@ def deregisteredfromELB(elb,instance_id,logger):
     
 def upgrade(ec2,instance_type,instance_id,logger,nexttype):
     print('entered in upgrade')
-    ec2.modify_instance_attribute(InstanceId=instance_id, Attribute='instanceType', Value=nexttype);        ##### nexttype chose next instance type in sequence up #####
+    ec2.modify_instance_attribute(InstanceId=instance_id, Attribute='instanceType', Value=nexttype);  ##### nexttype chose next instance type in sequence up #####
     print (instance_id, " resized");
     logger.info("Starting Instance ");                
     return 1 
         
 def downgrade(ec2,instance_type,instance_id,logger,nextelem):
     print('entered in downgrade')
-    ec2.modify_instance_attribute(InstanceId=instance_id,Attribute='instanceType',Value=nextelem);          ##### nextelem chose next instance type in sequence down#####
+    ec2.modify_instance_attribute(InstanceId=instance_id,Attribute='instanceType',Value=nextelem);    ##### nextelem chose next instance type in sequence down#####
     print (instance_id, " resized");
     logger.info("Starting Instance ");                
     return 1 
@@ -165,7 +165,7 @@ def lambda_handler(event, context):
         
         if instance_state == 'running':
             ### do the resize if instance is running , no for stopped instance
-            if instance_type != 't3.xlarge' and Alarmstate == 'ALARM':                        #### 't3.xlarge'  is a manual entry provided by user , replace as per requirement but ensure it should be top from list
+            if instance_type != 't3.xlarge' and Alarmstate == 'ALARM':     #### 't3.xlarge'  is a manual entry provided by user , replace as per requirement but ensure it should be top from list
                 print('deregisteredfromELB in progress')
                 deregisteredfromELB(elb,instance_id,logger)
                 print('deregisteredfromELB is completed')
@@ -181,7 +181,7 @@ def lambda_handler(event, context):
                 print('ReregisteredInELB in completed')
                 print('upgrade done')
                 
-            elif instance_type != 't2.micro' and Alarmstate == 'OK':                        #### 't2.micro' is a manual entry provided by user , replace as per requirement but ensure it should be basic from list
+            elif instance_type != 't2.micro' and Alarmstate == 'OK':        #### 't2.micro' is a manual entry provided by user , replace as per requirement but ensure it should be basic from list
                 print('deregisteredfromELB in progress')
                 deregisteredfromELB(elb,instance_id,logger)
                 print('deregisteredfromELB is completed')
