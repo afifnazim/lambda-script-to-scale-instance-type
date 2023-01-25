@@ -14,7 +14,7 @@ Procedure will follow the below roadmap -
 
 1. For scaling up: 
 
-EC2 CPU metric --->Alarm1 -->Eventbridge Rule 1--> Lambda -->Work flow  { DeregisteredfromELB --> EC2 Stop ----> Resize if 't2.micro' --> then  't2.nano' ----> Start. ----> RegisterToELB  }
+<i > EC2 CPU metric --->Alarm1 -->Eventbridge Rule 1--> Lambda -->Work flow  { DeregisteredfromELB --> EC2 Stop ----> Resize if 't2.micro' --> then  't2.nano' ----> Start. ----> RegisterToELB  } </i >
 
 2. For scaling down: 
 
