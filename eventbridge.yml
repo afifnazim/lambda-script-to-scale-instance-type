@@ -1,0 +1,32 @@
+<b><i> EventBrigde Rule 1 - monitor Alarm1 ARN, and current state ALARM, previousState OK. --> Target Lambda  </b></i>
+
+{
+  "detail-type": ["CloudWatch Alarm State Change"],
+  "source": ["aws.cloudwatch"],
+  "resources": ["arn:aws:cloudwatch:us-east-1:457709xxxxxx:alarm:Alarm1"], ### Alarm1 Controlling which alarm can trigger the eventbridge rule 1 for ''Upscale''. Also you can add multiple alrams here like node 2 alarm 3.
+  "detail": {
+    "state": {
+      "value": ["ALARM"]
+    },
+    "previousState": {
+      "value": ["OK"]
+    }
+  }
+}
+
+
+<b><i> EventBrigde Rule 2 - monitor Alarm2 ARN, and current state OK, previousState ALARM. --> Target Lambda </b></i>
+
+{
+  "detail-type": ["CloudWatch Alarm State Change"],
+  "source": ["aws.cloudwatch"],
+  "resources": ["arn:aws:cloudwatch:us-east-1:457709xxxxxx:alarm:Alarm2"], ### Alarm2 Controlling which alarm can trigger the eventbridge rule 2 for ''Downscale''. Also you can add multiple alrams here like node 2 alarm 4.
+  "detail": {
+    "state": {
+      "value": ["OK"]                        ---> ### reverse logic for downscale
+    },
+    "previousState": {
+      "value": ["ALARM"]                   ---> ### reverse logic for downscale
+    }
+  }
+}
