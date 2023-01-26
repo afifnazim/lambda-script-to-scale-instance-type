@@ -1,6 +1,6 @@
 # lambda-script-to-scale-instance-type
 
-We can use this simple python script to scale up or down instance type in a target group in aws infrastructure. 
+We can use this simple python script to scale up or down instance type in a target group in aws infrastructure using the Lambda function. 
 
 Our target is to automatically scale up and scale down aws instance type when the CPU/RAM utilization hits a certain level. We will use CloudWatch for checking the CPU/RAM utilization. To trigger the lambda function we will use Eventbridge when CW goes to alarm state. 
 
