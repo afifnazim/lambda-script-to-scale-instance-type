@@ -1,4 +1,4 @@
-<b><i> EventBrigde Rule 1 - monitor Alarm1 ARN, and current state ALARM, previousState OK. --> Target Lambda  </b></i>
+EventBrigde Rule 1 - monitor Alarm1 ARN, and current state ALARM, previousState OK. --> Target Lambda
 
 {
   "detail-type": ["CloudWatch Alarm State Change"],
@@ -15,7 +15,7 @@
 }
 
 
-<b><i> EventBrigde Rule 2 - monitor Alarm2 ARN, and current state OK, previousState ALARM. --> Target Lambda </b></i>
+EventBrigde Rule 2 - monitor Alarm2 ARN, and current state OK, previousState ALARM. --> Target Lambda
 
 {
   "detail-type": ["CloudWatch Alarm State Change"],
